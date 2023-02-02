@@ -1,0 +1,494 @@
+$component-name: 'kv';
+
+.#{$component-name} {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  @include vw-convert-pc(height, 556);
+
+  &__contents {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    @include vw-convert-pc(width, 380);
+    color: $black;
+    text-align: left;
+
+    &.vertical-top {
+      @include vw-convert-pc(top, 70);
+      transform: translateY(0);
+    }
+
+    &.vertical-middle {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &.horizon-left {
+      align-items: flex-start;
+      @include vw-convert-pc(left, 140);
+      text-align: left;
+    }
+
+    &.horizon-right {
+      @include vw-convert-pc(right, 140);
+    }
+
+    &.center {
+      top: 25%;
+      left: 50%;
+      text-align: center;
+      transform: translate(-50%, 25%);
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    font-family: $sharpSans;
+    @include vw-font-size-pc(52);
+    @include line-height-pc(1.0769, 52);
+    color: $black;
+    @include multi-ellipsis(3);
+    word-break: break-word;
+  }
+
+  &__subtitle {
+    @include vw-font-size-pc(16);
+    @include vw-convert-pc(margin-top, 18);
+    color: $black;
+    @include multi-ellipsis(2);
+    letter-spacing: 0.1px;
+  }
+
+  &__link-wrap {
+    display: inline-flex;
+    align-items: center;
+    @include vw-convert-pc(gap, 30);
+    @include vw-convert-pc(margin-top, 44);
+
+    .theme-white & {
+      color: $white;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    height: auto;
+    @include vw-convert-pc(border-radius, 20);
+    font-weight: bold;
+    @include vw-font-size-pc(12);
+    color: $black;
+    text-transform: uppercase;
+    word-break: break-word;
+    @include multi-ellipsis(2);
+
+    &--more {
+      position: relative;
+      @include vw-convert-pc(max-width, 150);
+      border-bottom: 1px solid $black;
+      border-radius: 0;
+      @include line-height-pc(1.2, 12);
+      letter-spacing: 1.7px;
+      text-align: left;
+
+      &:hover {
+        padding-bottom: 1px;
+        border-bottom: 0;
+      }
+
+      &::after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background: $black;
+        content: '';
+      }
+
+      &:hover::after {
+        width: 100%;
+        transition: width .4s;
+      }
+    }
+
+    &--buy {
+      @include vw-convert-pc(max-width, 200);
+      @include vw-convert-pc(max-height, 60);
+      @include vw-convert-pc(padding, 11 40);
+      border: 1px solid $black;
+      @include vw-convert-pc(letter-spacing, 1.7);
+      word-break: break-word;
+      transition: color .3s, background-color .6s;
+
+      &:hover {
+        color: $white;
+        background: $black;
+        transition: color .3s, background-color .6s;
+      }
+    }
+
+    &--register {
+      @include vw-convert-pc(max-width, 250);
+      @include vw-convert-pc(max-height, 60);
+      @include vw-convert-pc(padding, 12 35);
+      border: 1px solid $black;
+      @include vw-convert-pc(border-radius, 25);
+      @include vw-convert-pc(letter-spacing, 1.7);
+      word-break: break-word;
+      transition: color .3s, background-color .6s;
+
+      &:hover {
+        color: $white;
+        background: $black;
+        transition: color .3s, background-color .6s;
+      }
+    }
+
+    .theme-white & {
+      color: $white;
+      border: 1px solid $white;
+
+      &--more {
+        border: none;
+        border-bottom: 1px solid $white;
+
+        &:hover {
+          border-bottom: 0;
+          padding-bottom: 1px;
+        }
+
+        &::after {
+          position: absolute;
+          left: 0;
+          bottom: 0px;
+          width: 0;
+          height: 1px;
+          background: $white;
+          content: '';
+        }
+
+        &:hover::after {
+          width: 100%;
+          transition: width .4s;
+        }
+      }
+
+      &--buy {
+
+        &:hover {
+          color: $black;
+          background: $white;
+          transition: color .3s, background-color .6s;
+        }
+      }
+
+      &--register {
+
+        &:hover {
+          color: $black;
+          background: $white;
+          transition: color .3s, background-color .6s;
+        }
+      }
+    }
+  }
+
+  &__disclaimer {
+    position: relative;
+    @include vw-font-size-pc(12);
+    @include vw-convert-pc(margin-top, 27);
+    color: $black;
+    letter-spacing: 0.1px;
+    @include multi-ellipsis(1);
+
+    .theme-white & {
+      color: $white;
+    }
+  }
+
+  &__swiper {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-wrapper {
+    display: inline-flex;
+  }
+
+  .swiper-slide {
+    position: relative;
+    cursor: pointer;
+
+    &.theme-white {
+      .#{$component-name} {
+        &__title, &__subtitle {
+          color: $white;
+        }
+      }
+
+      .swiper-button-prev::before {
+        background-image: url("../../../../img/kv/arrow_icon_white_prev.svg");
+      }
+
+      .swiper-button-next::after {
+        background-image: url("../../../../img/kv/arrow_icon_white_next.svg");
+      }
+    }
+  }
+
+  .swiper-img {
+    display: block;
+    width: 100%;
+  }
+
+  .swiper-button {
+    position: absolute;
+    top: 50%;
+    @include vw-convert-pc(width, 80);
+    @include vw-convert-pc(height, 80);
+    transform: translateY(-50%);
+
+    &-prev {
+      @include vw-convert-pc(left, 7);
+
+      &::before {
+        display: inline-block;
+        width: 50%;
+        height: 70%;
+        vertical-align: middle;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("../../../../img/kv/arrow_icon_prev.svg");
+        content: '';
+      }
+    }
+
+    &-next {
+      @include vw-convert-pc(right, 6);
+
+      &::after {
+        display: inline-block;
+        width: 50%;
+        height: 70%;
+        vertical-align: middle;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("../../../../img/kv/arrow_icon_next.svg");
+        content: '';
+      }
+    }
+  }
+
+  &__pagination-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    @include vw-convert-pc(height, 70);
+
+    &.theme-text {
+      justify-content: center;
+      position: absolute;
+      bottom: 0;
+
+      .#{$component-name} {
+        &__pagination {
+          height: 100%;
+          background: transparent;
+
+          &.theme-black {
+            .#{$component-name} {
+              &__page-link {
+                color: $black;
+              }
+
+              &__pagination-btn {
+                &::after {
+                  background-image: url("../../../../img/kv/icon-pause-black.svg");
+                }
+
+                &.is-pause::after {
+                  background-image: url("../../../../img/kv/icon-play-black.svg");
+                }
+              }
+            }
+
+            .swiper-pagination-bullet {
+              border-bottom: 2px solid $black;
+
+              &::after {
+                background-color: $black;
+              }
+            }
+          }
+
+          &.theme-white {
+            .#{$component-name} {
+              &__page-link {
+                color: $white;
+              }
+
+              &__pagination-btn {
+                &::after {
+                  background-image: url("../../../../img/kv/icon-pause-white.svg");
+                }
+
+                &.is-pause::after {
+                  background-image: url("../../../../img/kv/icon-play-white.svg");
+                }
+              }
+            }
+
+            .swiper-pagination-bullet {
+              color: $white;
+              border-bottom: 1px solid $white;
+
+              &::after {
+                background: white;
+              }
+            }
+          }
+        }
+
+        &__pagination-list {
+          text-align: center;
+          @include vw-convert-pc(height, 70);
+
+          .swiper-pagination-bullet {
+            position: relative;
+            @include vw-convert-pc(width, 220);
+            height: auto;
+            @include vw-convert-pc(padding, 10 15 0);
+            border: none;
+            border-bottom: 2px solid $white;
+            border-radius: 0;
+            background: transparent;
+            font-weight: bold;
+            font-family: $sharpSans;
+            @include vw-font-size-pc(15);
+            @include vw-convert-pc(letter-spacing, 0.3);
+            @include multi-ellipsis(1);
+            cursor: pointer;
+
+
+            &-active {
+              .kv__page-link {
+                @include vw-convert-pc(top, -10);
+                opacity: 1;
+                transition: top 1.5s, opacity .7s;
+              }
+            }
+
+            &:hover {
+              .kv__page-link {
+                @include vw-convert-pc(top, -10);
+                opacity: 1;
+                transition: top 2s, opacity .7s;
+              }
+            }
+
+            &::after {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 0;
+              @include vw-convert-pc(height, 2);
+              content: '';
+            }
+
+            &-active::after {
+              @include vw-convert-pc(width, 220);
+              transition: width 3s;
+            }
+          }
+        }
+
+        &__page-link {
+          position: relative;
+          @include vw-convert-pc(top, 20);
+          transition: top 1s, opacity .7s;
+          opacity: 0;
+        }
+
+        &__pagination-btn {
+          @include vw-convert-pc(width, 40);
+          height: 50%;
+
+          &::after {
+            display: inline-block;
+            width: 50%;
+            vertical-align: middle;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            content: '';
+          }
+        }
+      }
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include vw-convert-pc(gap, 10);
+    width: auto;
+    @include vw-convert-pc(height, 50);
+    @include vw-convert-pc(padding, 0 20);
+    @include vw-convert-pc(border-radius, 30);
+    background: $bg-dots;
+  }
+
+  &__pagination-list {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    @include vw-convert-pc(gap, 15);
+
+    .swiper-pagination-bullet {
+      @include vw-convert-pc(width, 20);
+      @include vw-convert-pc(height, 20);
+      bottom: auto;
+      border: 2px solid $white;
+      border-radius: 50%;
+      background: transparent;
+      transition: background .5s;
+      font-size: 0;
+      cursor: pointer;
+
+      &-active, &:hover {
+        background: $white;
+      }
+
+      &-active {
+        transition: background .5s;
+      }
+    }
+  }
+
+  &__pagination-btn {
+    @include vw-convert-pc(width, 20);
+    @include vw-convert-pc(height, 50);
+
+    &::after {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("../../../../img/kv/icon-pause-white.svg");
+      content: '';
+    }
+
+    &.is-pause::after {
+      background-image: url("../../../../img/kv/icon-play-white.svg");
+    }
+  }
+}

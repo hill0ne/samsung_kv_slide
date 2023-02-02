@@ -1,0 +1,94 @@
+@@include('./include/head.html',{"title": 'KV',"list_title": "KV : 02-assignment"})
+
+<body>
+	<div class="wrap kv">
+		<section class="kv__swiper">
+			<div class="swiper-wrapper">
+				<!-- [D] if text color white, add swiper-slide 'theme-white',
+								 if text color white, add swiper-slide 'theme-black' -->
+				<div class="swiper-slide theme-black">
+					<!-- [D] if kv__contents text left, 'horizon-left',
+									 if right, add 'horizon-right',
+								 	 if top, add 'vertical-top',
+								 	 if middle, add 'vertical-middle',
+								 	 if center, add only 'center' -->
+					<div class="kv__contents horizon-left vertical-middle theme-black">
+						<h2 class="kv__title">Galaxy Note9</h2>
+						<p class="kv__subtitle is-show">The new super powerful Note</p>
+						<div class="kv__link-wrap">
+							<a href="#" class="kv__link kv__link--more" target="_blank">learn more</a>
+							<a href="#" class="kv__link kv__link--buy" target="_blank">buy now</a>
+						</div>
+					</div>
+					<picture>
+						<source media="(max-width:767px)" srcset="../img/kv/img-mo2.jpg">
+						<img src="../img/kv/SM_PC_KV_LTR_BG.jpg" style="width: 100%;" alt="">
+					</picture>
+					<button class="swiper-button swiper-button-prev" type="button" tabindex="3">
+						<span class="blind">이전 슬라이드 이동</span>
+					</button>
+					<button class="swiper-button swiper-button-next" type="button" tabindex="3">
+						<span class="blind">다음 슬라이드 이동</span>
+					</button>
+				</div>
+				<div class="swiper-slide">
+					<div class="kv__contents horizon-left vertical-top theme-black">
+						<h2 class="kv__title">Lorem ipsum dolor sit amet, consectetur</h2>
+						<p class="kv__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore e</p>
+						<div class="kv__link-wrap">
+							<a href="#" class="kv__link kv__link--more" target="_blank">learn more</a>
+							<a href="#" class="kv__link kv__link--buy" target="_blank">buy now</a>
+						</div>
+						<p class="kv__disclaimer">* Lorem ipsum has been the industry's standard dummy text ever sincep</p>
+					</div>
+					<picture>
+						<source media="(max-width:767px)" srcset="../img/kv/img-mo3.jpg">
+						<img src="../img/kv/SM_PC_KV_LTR_WHITE.jpg" style="width: 100%;" alt="">
+					</picture>
+					<button class="swiper-button swiper-button-prev" type="button">
+						<span class="blind">이전 슬라이드 이동</span>
+					</button>
+					<button class="swiper-button swiper-button-next" type="button">
+						<span class="blind">다음 슬라이드 이동</span>
+					</button>
+				</div>
+				<div class="swiper-slide theme-black">
+					<div class="kv__contents vertical-middle horizon-left theme-black">
+						<h2 class="kv__title">Perfect reality QLED 8K</h2>
+						<p class="kv__subtitle">Immersive TV is here.</p>
+						<div class="kv__link-wrap">
+							<a href="#" class="kv__link kv__link--register" target="_blank">pre-register</a>
+						</div>
+					</div>
+					<picture>
+						<source media="(max-width:767px)" srcset="../img/kv/img-mo1.jpg">
+						<img src="../img/kv/img-pc2.jpg" style="width: 100%;" alt="">
+					</picture>
+					<button class="swiper-button swiper-button-prev" type="button">
+						<span class="blind">이전 슬라이드 이동</span>
+					</button>
+					<button class="swiper-button swiper-button-next" type="button">
+						<span class="blind">다음 슬라이드 이동</span>
+					</button>
+				</div>
+			</div>
+		</section>
+		<!-- [D] if pagination color white, add 'theme-white',
+						 if pagination color black, add 'theme-black', 
+				  	 if pagination with text, add 'theme-text' -->
+		<div class="kv__pagination-wrap theme-text">
+			<div class="kv__pagination theme-black">
+				<div class="kv__pagination-list" role="list"></div>
+				<!-- if click pause button, add "is-pause" -->
+				<button class="kv__pagination-btn" type="button">
+					<span class="blind">슬라이드 재생됨</span>
+				</button>
+			</div>
+		</div>
+		<!-- [D] SCRIPT -->
+		@@include('./include/script.html')
+		<!-- // [D] SCRIPT -->
+	</div>
+</body>
+
+</html>

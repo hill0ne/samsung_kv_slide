@@ -1,0 +1,243 @@
+$component-name: 'kv';
+
+@include breakpoint(mobile) {
+  .#{$component-name} {
+    position: relative;
+    width: 100%;
+    @include vw-convert-mo(height, 445);
+
+    &__contents {
+      align-items: center;
+      width: 100%;
+      text-align: center;
+      transform: none;
+
+      &.vertical-top {
+        @include vw-convert-mo(top, 45);
+        transform: none;
+      }
+
+      &.vertical-middle {
+        @include vw-convert-mo(top, 45);
+        transform: none;
+      }
+
+      &.horizon-left {
+        align-items: center;
+        left: auto;
+        text-align: center;
+      }
+
+      &.horizon-right {
+        right: auto;
+      }
+
+      &.center {
+        @include vw-convert-mo(top, 45);
+        left: auto;
+        text-align: center;
+        transform: none;
+      }
+    }
+
+    &__title {
+      @include vw-convert-mo(max-width, 280);
+      @include vw-font-size-mo(31);
+      @include line-height-mo(1.1935, 31);
+      @include multi-ellipsis(2);
+      text-align: center;
+    }
+
+    &__subtitle {
+      @include vw-convert-mo(max-width, 230);
+      @include vw-convert-mo(margin-top, 9);
+      @include vw-font-size-mo(14);
+      @include line-height-mo(1.2857, 14);
+      @include multi-ellipsis(3);
+      text-align: center;
+    }
+
+    &__link-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include vw-convert-mo(gap, 13);
+      @include vw-convert-mo(margin-top, 21);
+    }
+
+    &__link {
+      height: auto;
+      @include vw-font-size-mo(9);
+      @include line-height-mo(1.9, 9);
+      text-align: center;
+
+      &--more {
+        @include vw-convert-mo(max-width, 100);
+        @include vw-convert-mo(padding, 0);
+        border-bottom: 2px solid $black;
+        @include line-height-mo(1.5, 10);
+        @include vw-convert-mo(letter-spacing, 1.5);
+
+        &:hover::before {
+          transition: none;
+        }
+      }
+
+      &--buy {
+        @include vw-convert-mo(max-width, 150);
+        @include vw-convert-mo(max-height, 60);
+        @include vw-convert-mo(padding, 6 25);
+        border: 2px solid $black;
+        letter-spacing: 1.2px;
+        @include vw-convert-mo(border-radius, 30);
+        text-align: center;
+      }
+
+      &--register {
+        @include vw-convert-mo(max-width, 150);
+        @include vw-convert-mo(max-height, 60);
+        @include vw-convert-mo(padding, 6 33 6 32);
+        @include vw-convert-mo(border-radius, 20);
+        @include vw-convert-mo(letter-spacing, 1.7);
+      }
+    }
+
+    &__disclaimer {
+      display: none;
+    }
+
+    .swiper-button {
+      display: none;
+    }
+
+    &__pagination-wrap {
+      position: absolute;
+      @include vw-convert-mo(bottom, 3);
+      @include vw-convert-mo(height, 35);
+
+      &.theme-text {
+
+        .#{$component-name} {
+
+          &__pagination {
+            display: inline-flex;
+            align-items: center;
+            @include vw-convert-mo(gap, 5);
+            position: relative;
+            width: auto;
+            @include vw-convert-mo(height, 10);
+            @include vw-convert-mo(margin-top, -5);
+            @include vw-convert-mo(padding, 9 10);
+            @include vw-convert-mo(border-radius, 30);
+            background: $bg-dots;
+
+            &.theme-black .kv__pagination-btn, &.theme-white .kv__pagination-btn {
+              align-self: auto;
+              @include vw-convert-mo(width, 10);
+              @include vw-convert-mo(height, 15);
+
+              &::after {
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-image: url("../../../../img/kv/icon-pause-white.svg");
+              }
+
+              &.is-pause::after {
+                background-image: url("../../../../img/kv/icon-play-white.svg");
+              }
+            }
+
+            &.theme-black, &.theme-white {
+              .swiper-pagination-bullet {
+                @include vw-convert-mo(width, 6);
+                @include vw-convert-mo(height, 6);
+                padding: 0;
+                border: 1px solid $white;
+                border-radius: 50%;
+              }
+            }
+          }
+
+          &__pagination-list {
+            @include vw-convert-mo(gap, 8);
+
+            .swiper-pagination-bullet {
+              @include vw-convert-mo(width, 6);
+              @include vw-convert-mo(height, 6);
+              padding: 0;
+              border-bottom: 1px solid $white;
+
+              & .kv__page-link {
+                top: 0;
+                font-size: 0;
+
+                &::after {
+                  content: none;
+                }
+              }
+
+              &::after {
+                content: none;
+              }
+
+              &-active {
+                background: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__pagination {
+      display: inline-flex;
+      align-items: center;
+      @include vw-convert-mo(gap, 5);
+      position: relative;
+      width: auto;
+      @include vw-convert-mo(height, 13);
+      @include vw-convert-mo(padding, 9 10);
+      @include vw-convert-mo(border-radius, 30);
+
+      &.theme-white, &.theme-black {
+        .#{$component-name} {
+          &__pagination-bton {
+            background-image: url("../../../../img/kv/icon-pause-white.svg");
+
+            &.is-pause::after {
+              background-image: url("../../../../img/kv/icon-play-white.svg");
+            }
+          }
+        }
+      }
+    }
+
+    &__pagination-list {
+      @include vw-convert-mo(gap, 8);
+
+      .swiper-pagination-bullet {
+        @include vw-convert-mo(width, 6);
+        @include vw-convert-mo(height, 6);
+        padding: 0;
+        border: 1px solid $white;
+      }
+    }
+
+    &__pagination-btn {
+      align-self: center;
+      position: static;
+      @include vw-convert-mo(width, 10);
+      @include vw-convert-mo(height, 15);
+
+      &::after {
+        display: block;
+        width: 100%;
+        height: 100%;
+        content: '';
+      }
+    }
+  }
+}
+
+;
